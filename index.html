@@ -1,0 +1,100 @@
+<!--Tabs similar to this? http://bl.ocks.org/widged/4561185-->
+<!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs-->
+<!--Need to add one SVG element per tab. V1 will have it's svg, so will V2, etc.-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>INF8808 - Projet</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/V1.css">
+    <link rel="stylesheet" href="assets/css/V2.css">
+    <link rel="stylesheet" href="assets/css/V3.css">
+    <link rel="stylesheet" href="assets/css/V4.css">
+
+</head>
+<body>
+
+<h2>Projet de visualisation de données:</h2>
+<h3>Incidents dans le métro de Montréal</h3>
+<p>MISE EN CONTEXTE</p>
+<p>Cliquez sur chacun des onglets pour explorer les visualisations</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'V1tab')">V1</button>
+  <button class="tablinks" onclick="openTab(event, 'V2tab')">V2</button>
+  <button class="tablinks" onclick="openTab(event, 'V3tab')">V3</button>
+  <button class="tablinks" onclick="openTab(event, 'V4tab')">V4</button>
+</div>
+
+<div id="V1tab" class="tabcontent">
+  <h3>V1</h3>
+  <p>Mettre la V1 ici.</p>
+  <div id="canvasV1"></div>
+  
+</div>
+
+<div id="V2tab" class="tabcontent">
+  <h3>V2</h3>
+  <p>Mettre la V2 ici.</p> 
+  <div id="canvasV2">
+      <svg></svg>
+      <aside id="panel">
+          <button title="Fermer">
+              <img alt="Fermer" src="./assets/img/close.svg">
+          </button>
+          <h1 id="station-name"></h1>
+          <h2>Informations:</h2>
+          <p id="nb-incidents"></p>
+          <p id="tps-moy-arret"></p>
+          <p id="tps-tot-arret"></p>
+      </aside>
+  </div>
+  
+</div>
+
+<div id="V3tab" class="tabcontent">
+  <h3>V3</h3>
+  <p>Mettre la V3 ici.</p>
+  <div id="canvasV3"></div>
+  
+</div>
+
+<div id="V4tab" class="tabcontent">
+    <h3>V4</h3>
+    <p>Mettre la V4 ici.</p>
+    <div id="canvasV4"></div>
+    
+  </div>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<script type="text/javascript" src="assets/libs/d3.js"></script>
+<script type="text/javascript" src="assets/libs/d3-tip.js"></script>
+
+<script type="text/javascript" src="assets/scripts/preproc.js"></script>
+<script type="text/javascript" src="assets/scripts/V1.js"></script>
+<script type="text/javascript" src="assets/scripts/V2.js"></script>
+<script type="text/javascript" src="assets/scripts/V3.js"></script>
+<script type="text/javascript" src="assets/scripts/V4.js"></script>
+<script type="text/javascript" src="assets/scripts/main.js"></script>
+   
+</body>
+</html> 
+
