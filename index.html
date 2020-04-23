@@ -38,28 +38,28 @@
 <p align="left">Cliquez sur chacun des onglets pour explorer les visualisations</p>
 
 <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'V1tab')">V1</button>
-    <button class="tablinks" onclick="openTab(event, 'V2tab')">V2</button>
-    <button class="tablinks" onclick="openTab(event, 'V3tab')">V3</button>
-    <button class="tablinks" onclick="openTab(event, 'V4tab')">V4</button>
+    <button class="tablinks" onclick="openTab(event, 'V1tab')">Visualisation 1</button>
+    <button class="tablinks" onclick="openTab(event, 'V2tab')">Visualisation 2</button>
+    <button class="tablinks" onclick="openTab(event, 'V3tab')">Visualisation 3</button>
+    <button class="tablinks" onclick="openTab(event, 'V4tab')">Visualisation 4</button>
 </div>
 
 <div id="V1tab" class="tabcontent">
     <h3>Répartition des incidents selon l'heure de la journée</h3>
-    <p>Le survol d'un carré sélectionne l'heure. Un clique de souris vide la sélection.</p>
+    <p>Le survol d'un carré sélectionne l'heure. Un clic de souris sur la page vide la sélection.</p>
     <div id="canvasV1"></div>
 
 </div>
 
 <div id="V2tab" class="tabcontent">
-    <h3>Somme des minutes d'arrets sur l'année, et sélection d'un trajet</h3>
+    <h3>Somme des minutes d'arrêts sur l'année, et sélection d'un trajet</h3>
     <p class = "description">Pour la carte: la largeur de la bande de couleur d'une ligne
-        représente la somme du temps d'arret pour la station.</p>
+        représente la somme du temps d'arrêt pour la station.</p>
     <p class = "description">Un survol de la station permet d'afficher des informations globales sur la station</p>
-    <p class = "description">Un clique permet de sélectionner une trajet
-        et affiche une visualisation de la somme des temps d'arrets
-        pour chaque heur de la journée sur les stations sélectionnée</p>
-    <p class = "description">Un deuxième clique permet de repasser en mode survole des stations</p>
+    <p class = "description">Un clic permet de sélectionner un trajet
+        et affiche un histogramme de la somme des temps d'arrets
+        pour chaque heure de la journée sur les stations sélectionnées</p>
+    <p class = "description">Un deuxième clic permet de repasser en mode survol des stations</p>
     <div id="canvasV2">
         <svg></svg>
         <aside id="panel">
@@ -80,19 +80,34 @@
 </div>
 
 <div id="V3tab" class="tabcontent">
-    <h3>V3</h3>
-    <p>Mettre la V3 ici.</p>
-    <div id="canvasV3"></div>
-    <button id="S1">Scenario 1</button>
-    <button id="S2">Scenario 2</button>
-    <button id="S3">Scenario 3</button>
+  <h3>Visualisation de scénarios de trajets et de l'impact d'incidents probables</h3>
+  <p>La sélection des scénarios prédéterminés se fait à l'aide des boutons. On démarre la simulation à l'aide des boutons d'heure de départ pour voir le trajet effectué.</p>
+  <p>On affiche lorsqu'il est probable un incident à la station concernée avec les informations pertinentes et le temps de ralentissement causé.</p>
+  <div id="canvasV3"></div>
 </div>
 
 <div id="V4tab" class="tabcontent">
-    <h3>Visualisation des incidents durant lesquels le frein d'urgence a été actionné</h3>
-    <p>Mettre la V4 ici.</p>
-    <div id="canvasV4"></div>
+    <h3>Incidents impliquant l'actionnement du frein d'urgence en 2019</h3>
+    <p align="justify">Lorsque les utilisateurs du métro vivent une situation d'extrême urgence qui nécessite l'arrêt du train, ils peuvent actionner un frein d'urgence. 
+        Ce dernier se trouve au milieu de la voiture à proximité des portes. 
+        S'il est utilisé lorsque le train est en mouvement, celui-ci s’immobilisera en station ou à la prochaine station dans la plupart des cas.
+        L’opérateur du train se rendra à la voiture où le frein a été actionné pour évaluer la situation.<br><br>Les graphiques ci-dessous fournissent des détails quant aux arrêts de service engendrés par un actionnement du frein sur chaque ligne.
+        En cliquant sur un des deux boutons ci-dessous, l'ensemble des incidents peut être exploré selon deux unités:
+        <ul><li align="left">Le nombre d'arrêts de service;</li><li align="left">Le temps d'arrêt de service (en minutes).</li></ul>
+        <p align="justify">En survolant les bandes du diagramme principal, vous pourrez connaître les 3 stations les plus affectées par ces incidents. Enfin, en cliquant sur chacune des bandes, vous pourrez obtenir des détails sur des incidents impliquant le frein pour chacune des lignes selon 3 causes fréquentes:</p>
+        <ul><li align="left">Clientèle blessée ou malade;</li><li align="left">Méfait involontaire;</li><li align="left">Nuisance volontaire.</li></ul></p>
+    <div id="canvasV4">
+        <div class="row">
+            <div class="col">
+              <div class="toggle-buttons">
+                <button class="active">Nombre d'arrêts</button>
+                <button>Temps d'arrêt (en minutes)</button>
+              </div>
+            </div>   
+        </div>
+    </div>
 </div>
+
 
 <script>
     function openTab(evt, tabName) {
